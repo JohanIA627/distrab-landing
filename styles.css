@@ -5,7 +5,7 @@
   --black-card: #1a1a1a;
   --white: #f5f5f5;
   --grey: #9b9b9b;
-  --grey-dark: #6b6b6b;
+  --grey-dark: #7d7d7d;
   --accent-start: #F1FDE0;
   --accent-end: #91FD00;
   --accent-gradient: linear-gradient(135deg, var(--accent-start) 0%, var(--accent-end) 100%);
@@ -42,6 +42,17 @@ em {
   font-size: 1.08em;
 }
 
+::selection {
+  background: var(--accent-end);
+  color: var(--black);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-end);
+  outline-offset: 3px;
+}
+
 /* ---------- Ambient glow ---------- */
 .ambient-glow {
   position: absolute;
@@ -76,6 +87,10 @@ em {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 36px rgba(145, 253, 0, 0.55);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-secondary {
@@ -179,6 +194,7 @@ em {
   line-height: 1.12;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+  text-wrap: balance;
 }
 
 .hero-title em {
@@ -204,8 +220,8 @@ em {
 
 .hero-horizon {
   position: relative;
-  height: 320px;
-  margin-top: 2rem;
+  height: 240px;
+  margin-top: 1.5rem;
   overflow: hidden;
 }
 
@@ -228,7 +244,7 @@ em {
 /* ---------- Taglines banner ---------- */
 .taglines {
   text-align: center;
-  padding: 2rem 1.5rem 5rem;
+  padding: 1.5rem 1.5rem 3rem;
 }
 
 .taglines-row {
@@ -273,7 +289,8 @@ em {
   font-weight: 600;
   line-height: 1.18;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  text-wrap: balance;
 }
 
 .section-title em {
@@ -314,7 +331,7 @@ em {
 /* ---------- Dolor ---------- */
 .pain {
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .pain-list {
@@ -346,7 +363,7 @@ em {
 /* ---------- Servicios ---------- */
 .services {
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .services-grid {
@@ -409,7 +426,7 @@ em {
 /* ---------- Proceso ---------- */
 .process {
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .process-steps {
@@ -460,7 +477,7 @@ em {
 /* ---------- Para quién ---------- */
 .audience {
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .audience-regions {
@@ -475,7 +492,7 @@ em {
 /* ---------- Comparison ---------- */
 .comparison {
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .comparison-grid {
@@ -564,7 +581,7 @@ em {
 .cta {
   position: relative;
   text-align: center;
-  padding: 6rem 1.5rem;
+  padding: 4.5rem 1.5rem;
   overflow: hidden;
 }
 
@@ -681,11 +698,15 @@ em {
   }
 
   .hero-horizon {
-    height: 220px;
+    height: 160px;
   }
 
   .taglines {
-    padding-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .section-title {
+    margin-bottom: 2rem;
   }
 
   .pain,
@@ -693,12 +714,12 @@ em {
   .process,
   .comparison,
   .audience {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .cta {
-    padding: 4.5rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
 }
 

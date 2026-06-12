@@ -28,14 +28,3 @@ navLinks.addEventListener("click", (e) => {
     navToggle.setAttribute("aria-expanded", "false");
   }
 });
-
-// Close other FAQ items when one opens
-document.querySelectorAll(".faq-item").forEach((item) => {
-  item.addEventListener("toggle", () => {
-    if (item.open) {
-      document.querySelectorAll(".faq-item[open]").forEach((other) => {
-        if (other !== item) other.open = false;
-      });
-    }
-  });
-});

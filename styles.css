@@ -186,6 +186,17 @@ button:focus-visible {
   text-align: center;
   padding: 6rem 1.5rem 0;
   z-index: 1;
+  overflow-x: clip;
+}
+
+.hero-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 3rem;
+  align-items: center;
+  text-align: left;
 }
 
 .hero-title {
@@ -205,15 +216,15 @@ button:focus-visible {
 }
 
 .hero-subtitle {
-  max-width: 620px;
-  margin: 0 auto 2.25rem;
+  max-width: 56ch;
+  margin: 0 0 2.25rem;
   color: var(--grey);
   font-size: 0.95rem;
 }
 
 .hero-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.9rem;
   flex-wrap: wrap;
 }
@@ -245,8 +256,9 @@ button:focus-visible {
 .hero-visual {
   position: relative;
   z-index: 1;
+  width: 100%;
   max-width: 540px;
-  margin: 3.5rem auto 0;
+  margin: 0;
   perspective: 1400px;
 }
 
@@ -900,6 +912,28 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 540px);
+    justify-content: center;
+    text-align: center;
+    gap: 2.75rem;
+  }
+
+  .hero-copy .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 840px) {
   .comparison-grid {
     grid-template-columns: minmax(0, 420px);
@@ -951,10 +985,6 @@ button:focus-visible {
   .hero-horizon {
     height: 160px;
     margin-top: -100px;
-  }
-
-  .hero-visual {
-    margin-top: 2.75rem;
   }
 
   .laptop-tilt {

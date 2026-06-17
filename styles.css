@@ -11,7 +11,8 @@
   --accent-gradient: linear-gradient(135deg, var(--accent-start) 0%, var(--accent-end) 100%);
   --border: rgba(255, 255, 255, 0.08);
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-serif: "Space Grotesk", "Inter", sans-serif;
 }
 
 /* ---------- Base ---------- */
@@ -36,10 +37,15 @@ body {
 }
 
 em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.08em;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4,
+.nav-brand,
+.btn {
+  font-family: var(--font-display);
 }
 
 ::selection {
@@ -61,8 +67,8 @@ button:focus-visible {
   transform: translateX(-50%);
   width: min(1200px, 100%);
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(145, 253, 0, 0.18) 0%, rgba(241, 253, 224, 0.05) 40%, transparent 70%);
-  filter: blur(60px);
+  background: radial-gradient(ellipse at center, rgba(145, 253, 0, 0.10) 0%, rgba(241, 253, 224, 0.03) 40%, transparent 70%);
+  filter: blur(70px);
   pointer-events: none;
   z-index: 0;
 }
@@ -81,12 +87,12 @@ button:focus-visible {
 .btn-primary {
   background: var(--accent-gradient);
   color: var(--black);
-  box-shadow: 0 0 24px rgba(145, 253, 0, 0.35);
+  box-shadow: 0 8px 20px -10px rgba(145, 253, 0, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 36px rgba(145, 253, 0, 0.55);
+  box-shadow: 0 12px 26px -10px rgba(145, 253, 0, 0.55);
 }
 
 .btn:active {
@@ -110,8 +116,10 @@ button:focus-visible {
 
 /* ---------- Navbar ---------- */
 .nav-wrapper {
-  position: sticky;
+  position: fixed;
   top: 1.25rem;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -184,7 +192,7 @@ button:focus-visible {
 .hero {
   position: relative;
   text-align: center;
-  padding: 6rem 1.5rem 0;
+  padding: 7.5rem 1.5rem 0;
   z-index: 1;
   overflow-x: clip;
 }
@@ -234,6 +242,7 @@ button:focus-visible {
   height: 240px;
   margin-top: -150px;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .horizon-glow {
@@ -244,11 +253,11 @@ button:focus-visible {
   width: 760px;
   height: 360px;
   background: radial-gradient(ellipse at center,
-    rgba(241, 253, 224, 0.9) 0%,
-    rgba(145, 253, 0, 0.55) 22%,
-    rgba(145, 253, 0, 0.18) 45%,
+    rgba(241, 253, 224, 0.45) 0%,
+    rgba(145, 253, 0, 0.28) 22%,
+    rgba(145, 253, 0, 0.10) 45%,
     transparent 70%);
-  filter: blur(40px);
+  filter: blur(50px);
   border-radius: 50%;
 }
 
@@ -855,8 +864,8 @@ button:focus-visible {
   transform: translateX(-50%);
   width: 800px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(145, 253, 0, 0.22) 0%, transparent 65%);
-  filter: blur(50px);
+  background: radial-gradient(ellipse at center, rgba(145, 253, 0, 0.12) 0%, transparent 65%);
+  filter: blur(55px);
   pointer-events: none;
 }
 
@@ -979,7 +988,7 @@ button:focus-visible {
 
 @media (max-width: 680px) {
   .hero {
-    padding-top: 4rem;
+    padding-top: 6rem;
   }
 
   .hero-horizon {
@@ -1044,4 +1053,140 @@ button:focus-visible {
   .chat-typing span {
     animation: none;
   }
+
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---------- Marquee (banda deslizante) ---------- */
+.marquee {
+  background: var(--black-soft);
+  border-block: 1px solid var(--border);
+  padding: 0.9rem 0;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  list-style: none;
+}
+
+.marquee-group li {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--white);
+  white-space: nowrap;
+  padding-inline: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee-group li::before {
+  content: "◆";
+  color: var(--accent-end);
+  font-size: 0.55rem;
+  margin-right: 1.5rem;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- FAQ (acordeón) ---------- */
+.faq {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.accordion-item {
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.accordion-item[open] {
+  border-color: rgba(145, 253, 0, 0.25);
+}
+
+.accordion-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.1rem 3rem 1.1rem 1.3rem;
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent-end);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.accordion-item p {
+  padding: 0 1.3rem 1.2rem;
+  color: var(--grey);
+  font-size: 0.9rem;
+}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 90;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-gradient);
+  color: var(--black);
+  box-shadow: 0 10px 24px -8px rgba(145, 253, 0, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.wa-float:hover {
+  transform: scale(1.08);
 }

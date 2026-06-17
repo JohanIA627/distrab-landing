@@ -192,7 +192,10 @@ button:focus-visible {
 .hero {
   position: relative;
   text-align: center;
-  padding: 7.5rem 1.5rem 0;
+  padding: 9rem 1.5rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
   overflow-x: clip;
 }
@@ -240,7 +243,7 @@ button:focus-visible {
 .hero-horizon {
   position: relative;
   height: 240px;
-  margin-top: -150px;
+  margin-top: auto;
   overflow: hidden;
   pointer-events: none;
 }
@@ -603,7 +606,7 @@ button:focus-visible {
 /* ---------- Dolor ---------- */
 .pain {
   text-align: center;
-  padding: 3rem 1.5rem;
+  padding: 5rem 1.5rem;
 }
 
 .pain-list {
@@ -635,7 +638,7 @@ button:focus-visible {
 /* ---------- Servicios ---------- */
 .services {
   text-align: center;
-  padding: 3rem 1.5rem;
+  padding: 5rem 1.5rem;
 }
 
 .services-grid {
@@ -698,7 +701,7 @@ button:focus-visible {
 /* ---------- Proceso ---------- */
 .process {
   text-align: center;
-  padding: 3rem 1.5rem;
+  padding: 5rem 1.5rem;
 }
 
 .process-steps {
@@ -993,7 +996,7 @@ button:focus-visible {
 
   .hero-horizon {
     height: 160px;
-    margin-top: -100px;
+    margin-top: auto;
   }
 
   .laptop-tilt {
